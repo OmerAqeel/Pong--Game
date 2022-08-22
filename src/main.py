@@ -28,11 +28,20 @@ game_Screen.onkey(key="s", fun=paddle2.moveDown)
 in_the_Game = True
 
 while in_the_Game:
-    time.sleep(0.1)   # This will allow the ball to move on a regular pace
+    time.sleep(0.05)   # This will allow the ball to move on a regular pace
     game_Screen.update()
     ball.move()
+# Detecting the collision between the wall and the ball
     if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce()
+        ball.bounce_y()
+# Detecting the collision between the paddle and ball
+    if (ball.distance(paddle1) < 40 and ball.xcor()> 320) or (ball.distance(paddle2) < 40 and ball.xcor()< -320):
+        ball.bounce_x()
+#Detecting if the paddle misses the ball and its a goal
+    if ball.xcor() == 400 or ball.xcor() == -400:
+        ball.resetpos()
+
+
 
 
 
