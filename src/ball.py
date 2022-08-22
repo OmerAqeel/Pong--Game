@@ -18,3 +18,7 @@ class Ball(Turtle):
         self.y_move *= -1
     def bounce_x(self):
         self.x_move *= -1
+
+    def resetpos(self):
+        self.goto(x=0, y=0)     # Ball goes back to the origin
+        self.bounce_x()         # Ball will move to the opposite direction to give chance to the next player
