@@ -52,17 +52,4 @@ while in_the_Game:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 game_Screen.exitonclick()
