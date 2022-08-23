@@ -8,6 +8,7 @@ class Ball(Turtle):
         self.color("white")
         self.x_move = 10
         self.y_move = 10
+        self.move_speed = 0.1
 
     def move(self):
         new_x = self.xcor()+ self.x_move
@@ -18,7 +19,9 @@ class Ball(Turtle):
         self.y_move *= -1
     def bounce_x(self):
         self.x_move *= -1
+        self.move_speed *= 0.9  #if the ball is hit by the paddle then the speed of the ball will increase
 
     def resetpos(self):
         self.goto(x=0, y=0)     # Ball goes back to the origin
+        self.move_speed = 0.1
         self.bounce_x()         # Ball will move to the opposite direction to give chance to the next player
