@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import ScoreBoard
 import time
 #Screen
 game_Screen = Screen()
@@ -14,8 +15,10 @@ paddle1 = Paddle()      # Paddle that will be on the right side of the screen
 paddle2 = Paddle()      # Paddle that will be on the left side of the screen
 paddle2.move_to_other_side()    # moving the paddle to the left side
 
+# Game Objects
 ball = Ball()
 game_Screen.listen()
+score = ScoreBoard()
 
 # Paddle1 controls
 game_Screen.onkey(key="Up", fun=paddle1.moveUp)
@@ -38,7 +41,12 @@ while in_the_Game:
     if (ball.distance(paddle1) < 40 and ball.xcor()> 320) or (ball.distance(paddle2) < 40 and ball.xcor()< -320):
         ball.bounce_x()
 #Detecting if the paddle misses the ball and its a goal
-    if ball.xcor() == 400 or ball.xcor() == -400:
+    if ball.xcor() == -400:                 # When the right paddle scores a point
+        score.right_score_increase()        # Point given to the right paddle
+        ball.resetpos()                     # Ball set back to the origin position 
+        
+    if ball.xcor() == 400:                  # When the left paddle scores a point
+        score.left_score_increase()
         ball.resetpos()
 
 
