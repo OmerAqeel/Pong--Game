@@ -23,9 +23,10 @@ You can learn more about it in its documentation 👉  https://docs.python.org/3
 This is main class of the program where all the instances from the all the other classes are created and used to build the game logic. All the conditions that the player might face during the game is tackled in this class i.e hitting the ball, scoring point, ball bouncing back from the edges.
 
 ### paddle.py
-This is the class created for the paddle instance that is created in the main.py, the class inherits from Turtle class which is imported from the turtle module. The class includes methods that allows the player to control the paddle on the screen i.e. moveUP(), moveDown().
+This is the class created for the paddle instance that is created in the main.py, the class inherits from Turtle class from the turtle module. The class includes methods that allows the player to control the paddle on the screen i.e. moveUP(), moveDown().
 
 ### ball.py
+This the class created for the ball object that is created in the main.py, this class also inherits from Turtle class from the turtle module. The class includes methods for the ball in the pong game, move() method used to move the ball on the screen, bounce_y() method used to bounce the ball from the wall/edges/boundaries of the screen, bounce_x() method for bouncing the ball when it is hit by the player and resetpos() which positions the ball back to the origin (x=0, y=0) coordinates.
 
 
 ### Graphical User Interface (GUI)
